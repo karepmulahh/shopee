@@ -29,7 +29,7 @@ $a = true;
 while ($a) {
     $gas = curl('https://foody.shopee.co.id/api/buyer/orders', $body, $headers);
     $date = "[".date("H:i:s")."]";
-    if (strpos($gas[1], 'Gagal Checkout (K06)') || strpos($gas[1], 'rate limit')) {
+    if (strpos($gas[1], 'Gagal Checkout (K06)')) {
         echo color('red', $date)." ".json_decode($gas[1])->msg."\n";
     } else {
         echo color('green', $date)." ".json_decode($gas[1])->msg."\n";
